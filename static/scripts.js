@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
     const trainButton = document.getElementById('trainButton');
     const trainingCard = document.getElementById('training-form');
