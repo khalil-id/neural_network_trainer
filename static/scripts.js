@@ -1,5 +1,14 @@
-// Existing code in scripts.js...
 
+document.addEventListener('DOMContentLoaded', function() {
+    const trainButton = document.getElementById('trainButton');
+    const trainingCard = document.getElementById('training-form');
+    const results = document.getElementById('results');
+
+    trainButton.addEventListener('click', function() {
+        trainingCard.style.display = 'none';
+        results.style.display = 'block';
+    });
+});
 document.getElementById('training-form').onsubmit = async function (e) {
     e.preventDefault();  // Prevent the form from submitting the traditional way
 
