@@ -1,0 +1,606 @@
+:root {
+    --primary: #009CFF;
+    --light: #F3F6F9;
+    --dark: #191C24;
+}
+
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 45px;
+    bottom: 45px;
+    z-index: 99;
+}
+
+.me-2{
+    /*margin-right: .5rem !important; */
+    margin-top: 3rem;
+    margin-left: 6.5rem;
+    font-size: xx-small;
+}
+.fa-hashtag:before {
+    content: "\f292";
+    font-size: 1rem;
+    margin: -0.5rem;
+}
+.bg-light{
+    background-color: #8fc1e3 ;
+    /*background: radial-gradient(circle, rgba(202,243,246,1) 0%, rgba(168,231,250,0.9500175070028011) 100%);
+    */
+    }
+.p-4{
+    /* background-color: #90ccf4 !important; */
+    background-color: #D2FDFF !important;
+}
+.pe-4 {
+    padding-right: 0rem !important;
+}
+.pb-3 {
+    padding-bottom: 0rem !important;
+}
+
+/*** Spinner ***/
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+}
+
+#spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}
+
+/*** Button ***/
+.btn {
+    transition: .5s;
+    border-radius: 5px; /* Added border-radius for buttons */
+    padding: 1rem; /* Consistent padding */
+}
+
+.btn.btn-primary {
+    width: 55%;
+    border-radius: 3rem;
+    height: 3.5rem;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    border-radius: 50px;
+}
+
+/*** Layout ***/
+.sidebar {
+    position: relative;
+    top: 0rem;
+    left: 0;
+    bottom: 0;
+    width: 260px;
+    height: 100%;
+    overflow-y: auto;
+    background: #EDE8F5;
+    transition: 0.5s;
+    z-index: 999;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Added shadow */
+}
+
+.mx-4 {
+    margin-right: 1.5rem !important;
+    margin-left: 1.5rem !important;
+}
+h3, .h3 {
+    font-size: calc(2rem + .1vw);
+}
+
+.fa-hashtag:before {
+    content: "";
+    font-size: 1rem;
+    margin: -0.5rem;
+}
+
+.fa-hashtag:before {
+    content: "";
+}
+.content {
+    /*margin-left: 250px;*/
+    min-height: 100vh;
+    background: #f7f9fb;
+    transition: 0.5s;
+}
+
+@media (min-width: 992px) {
+    .sidebar {
+        margin-left: 0;
+        width: 55%;
+    }
+
+    .sidebar.open {
+        margin-left: -119%;
+        width: 120%;
+    }
+
+    .content {
+        width: calc(100% - 250px);
+        padding-bottom: 1rem;
+    }
+
+    .content.open {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .sidebar {
+        margin-left: -250px;
+        width: 50%;
+    }
+
+    .sidebar.open {
+        margin-left: -119%;
+        width: 120%;
+    }
+
+    .content {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+/*** Navbar ***/
+.sidebar .navbar .navbar-nav .nav-link {
+    padding: 10px 10px; /* Adjusted padding */
+    color: var(--dark);
+    font-weight: 500;
+    border-left: 3px solid var(--light);
+    border-radius: 10px 30px 30px 10px;
+    transition: background 0.3s; /* Smooth background transition */
+    background-color: #efe8f9;
+}
+
+.sidebar .navbar .navbar-nav .nav-link:hover,
+.sidebar .navbar .navbar-nav .nav-link.active {
+    color: var(--primary);
+    background: #FFFFFF;
+    border-color: var(--primary);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow on hover */
+}
+
+.sidebar .navbar .navbar-nav .nav-link i {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    border-radius: 40px;
+}
+
+.sidebar .navbar .navbar-nav .nav-link:hover i,
+.sidebar .navbar .navbar-nav .nav-link.active i {
+    background: var(--light);
+}
+
+.sidebar .navbar .dropdown-toggle::after {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    transition: .5s;
+}
+
+.sidebar .navbar .dropdown-toggle[aria-expanded=true]::after {
+    transform: rotate(-180deg);
+}
+
+.sidebar .navbar .dropdown-item {
+    padding-left: 25px;
+    border-radius: 0 30px 30px 0;
+    transition: background 0.3s; /* Smooth background transition */
+}
+
+.sidebar .navbar .dropdown-item:hover {
+    background: var(--light); /* Background on hover */
+}
+
+.content .navbar .navbar-nav .nav-link {
+    margin-left: 25px;
+    padding: 12px 0;
+    color: var(--dark);
+    outline: none;
+}
+
+.content .navbar .navbar-nav .nav-link:hover,
+.content .navbar .navbar-nav .nav-link.active {
+    color: var(--primary);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow on hover */
+}
+
+.content .navbar .sidebar-toggler,
+.content .navbar .navbar-nav .nav-link i {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    border-radius: 40px;
+}
+
+.content .navbar .dropdown-toggle::after {
+    margin-left: 6px;
+    vertical-align: middle;
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    transition: .5s;
+}
+
+.content .navbar .dropdown-toggle[aria-expanded=true]::after {
+    transform: rotate(-180deg);
+}
+
+@media (max-width: 575.98px) {
+    .content .navbar .navbar-nav .nav-link {
+        margin-left: 15px;
+    }
+}
+
+/*** Date Picker ***/
+.bootstrap-datetimepicker-widget.bottom {
+    top: auto !important;
+}
+
+.bootstrap-datetimepicker-widget .table * {
+    border-bottom-width: 0px;
+}
+
+.bootstrap-datetimepicker-widget .table th {
+    font-weight: 500;
+}
+
+.bootstrap-datetimepicker-widget.dropdown-menu {
+    padding: 10px;
+    border-radius: 2px;
+}
+
+.bootstrap-datetimepicker-widget table td.active,
+.bootstrap-datetimepicker-widget table td.active:hover {
+    background: var(--primary);
+}
+
+.bootstrap-datetimepicker-widget table td.today::before {
+    border-bottom-color: var(--primary);
+}
+
+/*** Testimonial ***/
+.progress .progress-bar {
+    width: 0px;
+    transition: 2s;
+}
+
+/*** Testimonial ***/
+.testimonial-carousel .owl-dots {
+    margin-top: 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.testimonial-carousel .owl-dot {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    width: 15px;
+    height: 15px;
+    border: 5px solid var(--primary);
+    border-radius: 15px;
+    transition: .5s;
+}
+
+.testimonial-carousel .owl-dot.active {
+    background: var(--dark);
+    border-color: var(--primary);
+}
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:slnt@-6&display=swap');
+form label *{
+    font-family: "Afacad Flux", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "slnt" -6;
+}
+  
+/*** Form Enhancements ***/
+form {
+    background: #ede8f570;
+    padding: 20px 0px 50px;/*
+    border-radius: 8px;  Rounded corners for form */
+    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 1);  Box shadow */
+    margin: 0 0 0 -0.1rem;
+    font-family: "Merriweather", serif;
+    font-weight: 400;
+    font-style: normal;
+    width: 120%;
+}
+
+form input, form select, form textarea {
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Rounded corners for input fields */
+    padding: 10px;
+    margin: 10px 0; /* Consistent spacing */
+    width: 100%; /* Full width for inputs */
+    transition: border-color 0.3s; /* Smooth border transition */
+}
+
+form input:focus, form select:focus, form textarea:focus {
+    border-color: var(--primary); /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+form button {
+    margin-top: 10px; /* Space above button */
+}
+
+button:not(:disabled), [type="button"]:not(:disabled), [type="reset"]:not(:disabled), [type="submit"]:not(:disabled) {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem;
+}
+.navbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 0rem;
+    /*padding-bottom: 0rem;*/
+    background: #d8c2f0b5;
+}
+.w-100 {
+    width: 100% ;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0.1rem;
+    margin-bottom: 0;
+    list-style: none;
+}
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:slnt@-6&family=Merriweather&display=swap');
+#trainButton {
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: #f8f8f8; 
+    color: #009CFF; 
+    border: none    ;
+    border-radius: 40px;
+    font-size: larger;
+    font-family: "Merriweather", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 1rem 0 0 0;
+}
+#trainButton:hover {
+    background-color: #009CFF;
+    color: #f8f8f8;
+  }
+.mt-3 {
+    margin-top: -0.5rem 0 0 1rem !important;
+    width: 30rem;
+    min-width: 200px;
+    background-color: #f8f8f8;
+    color: #009CFF;
+    font-weight: 300;
+    border: none;
+}
+.mt-3:hover{
+    background-color: #009CFF;
+    color: #f8f8f8;
+    border: none;
+}
+
+
+
+
+
+
+
+  /* Two Column Form Layout */
+form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Make certain elements span both columns */
+form .nav-item.nav-link:first-child, /* File upload */
+#trainButton,
+.btn.btn-primary{
+    grid-column: span 2;
+}
+
+/* Group styling */
+.nav-item.nav-link {
+    margin-bottom: 0rem;
+    padding: 0.5rem;
+}
+
+/* Input styling */
+form input, 
+form select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.375rem;
+    background-color: white;
+}
+
+/* Label styling */
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #1a202c;
+}
+
+/* Radio button container */
+#modelTypeGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Radio button specific styling */
+#modelTypeGroup input[type="radio"] {
+    width: auto;
+    margin-right: 0.5rem;
+    /*display: none;
+    visibility: hidden;
+    */
+}
+
+/* Button positioning */
+#trainButton{
+    margin: 0.5rem auto -0.5rem;
+    width: 13rem;
+    height: 3.5rem;
+
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    form {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    form .nav-item.nav-link:first-child,
+    #trainButton,
+    .btn.btn-primary {
+        grid-column: 1;
+    }
+}
+
+/* Maintain consistent heights */
+.nav-item.nav-link {
+    min-height: 70px;
+}
+
+/* Improve focus states */
+form input:focus,
+form select:focus {
+    outline: 2px solid #90ccf4;
+    outline-offset: 1px;
+}
+
+/* Keep consistent spacing */
+.navbar-nav {
+    display: contents;
+}
+.download{
+    margin: 0 0 1rem 0;
+    padding: 1rem 2rem;
+    width: 20rem;
+    min-width: 200px;
+}
+
+
+
+
+#loadModelGroup {
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#loadModelButton {
+    background-color: #8fc1e3;
+    border: 2px solid #8fc1e3;
+    color: white;
+    padding: 8px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 40px;
+    font-family: "Merriweather", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 1rem 0;
+    width: 120%;
+}
+
+#loadModelButton:hover {
+    background-color: white;
+    color: #8fc1e3;
+}
+
+.model-summary {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    font-family: monospace;
+    white-space: pre-wrap;
+    font-size: 0.9rem;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+}
+
+/* Styling for when model is loaded */
+.model-loaded {
+    border: 2px solid #28a745;
+    background-color: #f8fff9;
+}
+
+/* Error state styling */
+.model-error {
+    border: 2px solid #dc3545;
+    background-color: #fff8f8;
+}
+.load{
+    grid-column: span 2;
+}
+.buttons{
+    display: flex;
+    align-items: center;
+    margin : 0 0 2.1rem 3.5rem
+}
+.buttons a, .buttons button {
+    margin-right: 2rem;
+}
+.py-0{
+    margin: 0.4rem 0 0 2rem;
+    background-color: #f7f9fb;
+}
+.pt-4{
+    padding-top: 1rem !important;
+}
